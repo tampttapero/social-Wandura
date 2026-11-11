@@ -25,6 +25,26 @@ Trình duyệt ──► postiz (web + API, cổng 4007)
                          └── temporal-ui (http://127.0.0.1:8080, theo dõi job)
 ```
 
+## Chạy miễn phí trên GitHub Codespaces (không cần cài gì)
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tampttapero/social-Wandura?quickstart=1)
+
+1. Bấm nút trên (hoặc **Code → Codespaces → Create codespace on main**).
+2. Chờ 3–5 phút. Codespace tự tạo `.env`, khởi động Docker và mở tool ở tab mới. Nếu tab không tự mở: vào tab **PORTS**, bấm biểu tượng quả địa cầu ở cổng **4007**.
+3. Đăng ký tài khoản đầu tiên (admin).
+4. Điền API key vào file `.env` ngay trong Codespace, sau đó chạy:
+   ```bash
+   docker compose -f docker-compose.yaml -f docker-compose.codespaces.yaml up -d
+   ```
+5. Muốn đồng nghiệp truy cập: tab **PORTS** → chuột phải cổng 4007 → **Port Visibility → Public**, rồi gửi họ link. Tool vẫn có trang đăng nhập riêng.
+
+Giới hạn của gói miễn phí:
+- Mỗi tài khoản cá nhân có 120 core-giờ/tháng, tức khoảng **60 giờ chạy** với máy 2 nhân. Xem mức đã dùng tại github.com/settings/billing.
+- Codespace **tự dừng sau 30 phút không dùng** (có thể tăng lên tối đa 4 giờ tại github.com/settings/codespaces). Khi Codespace dừng, **bài đã hẹn giờ sẽ không được đăng**. Dữ liệu vẫn được giữ, mở lại Codespace là tool chạy tiếp.
+- Mỗi Codespace có địa chỉ riêng. Nếu xóa đi tạo lại, phải cập nhật lại Callback URL trong app Facebook/X/Google/Discord.
+
+→ Codespaces phù hợp để dùng thử và soạn bài. Muốn hẹn giờ đăng 24/7 thì cần chạy trên máy luôn bật (Windows + WSL2 bên dưới) hoặc VPS.
+
 ## Cài đặt (Windows)
 
 1. Cài Docker Desktop (cần WSL2), khởi động lại máy nếu được yêu cầu, rồi mở Docker Desktop:

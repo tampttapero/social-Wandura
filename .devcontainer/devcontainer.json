@@ -1,0 +1,19 @@
+{
+  "name": "Social Wandura",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb"
+  },
+  "forwardPorts": [4007],
+  "portsAttributes": {
+    "4007": {
+      "label": "Social Wandura",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "bash scripts/codespace-start.sh"
+}

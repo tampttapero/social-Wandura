@@ -1,0 +1,17 @@
+# Bo sung khi chay tren GitHub Codespaces.
+# Postiz dat cookie dang nhap cho ".github.dev" - trinh duyet chan cookie nay
+# vi app.github.dev nam trong Public Suffix List. Caddy xoa thuoc tinh Domain
+# trong Set-Cookie de cookie gan dung voi ten mien cua Codespace.
+services:
+  postiz-proxy:
+    image: caddy:2.8-alpine
+    container_name: postiz-proxy
+    restart: always
+    ports:
+      - "4007:80"
+    volumes:
+      - ./codespaces/Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      - postiz-network
+    depends_on:
+      - postiz

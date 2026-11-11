@@ -1,0 +1,5 @@
+:80 {
+	reverse_proxy postiz:5000 {
+		header_down Set-Cookie `(?i);\s*domain=[^;]*` ""
+	}
+}
